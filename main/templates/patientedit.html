@@ -1,0 +1,109 @@
+{% extends 'carenav.html' %}
+{% load static%}
+{% block body%}
+<style>
+    .box-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin: 2rem;
+    }
+
+    .box-tilt {
+        box-shadow: 1px 1px solid black;
+        border: 1px solid black;
+        width: 600px;
+        height: 350px;
+        padding: 15px;
+        box-shadow: 10px 10px 10px black;
+        border-radius: 12px;
+        text-align: center;
+    }
+
+    .box-tilt2 {
+        box-shadow: 1px 1px solid black;
+        width: 300px;
+        height: 400px;
+        padding: 15px;
+
+    }
+    .box-tilt3 {
+        box-shadow: 1px 1px solid black;
+        width: 500px;
+        padding: 15px;
+    }
+    .pro {
+        margin-top: 20px;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+    }
+
+    .content {
+        text-align: left;
+    }
+    a{
+        margin-left: 10px;
+        margin-top: 15px;
+    }
+</style>
+
+<div class="container" style="margin-top:90px;">
+    <h2 class="text-center" style="text-transform: capitalize;"> {{d.user.last_name}} {{d.user.first_name}}</h2>
+    <div class="box-container">
+        <div class="box-tilt">
+            <div class="content">
+                <h4 align="center">Profile</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <b>FULL NAME : </b>
+                    </div>
+                    <div class="col-md-6">
+                        {{d.user.last_name}} {{d.user.first_name}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <b>CONTACT NO : </b>
+                    </div>
+                    <div class="col-md-4">
+                        {{d.contact}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <b>GENDER : </b>
+                    </div>
+                    <div class="col-md-4">
+                        {{d.gender}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <b>DATE OF BIRTH : </b>
+                    </div>
+                    <div class="col-md-4">
+                        {{d.dob}}
+                    </div>
+                </div> <br>
+                <a href="#" class="btn btn-danger">EDIT PROFILE</a>
+            </div>
+        </div>
+        <div class="box-tilt2">
+            <img draggable="false" src="{{d.facial_image.url}}" alt="" class="pro" />
+        </div>
+        <div class="box-tilt3">
+            <a href="{% url 'addperson' d.id%}" class="btn btn-danger"><i class="fas fa-meh" style="font-size:25px"></i> ADD PERSON </a>
+            <a href="#" class="btn btn-danger"><i class="material-icons" style="font-size:25px">location_on</i> TRACK USER</a>
+            <a href="#" class="btn btn-success"><i class="fa fa-plus-square" style="font-size:25px"></i> ADD MEDICINE</a>
+        </div>
+    </div>
+
+    {% if error %}
+    <script>
+        alert('profile updated')
+        window.location = "{% url 'profile' %}"
+    </script>
+    {%endif %}
+
+    {%endblock%}

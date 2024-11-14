@@ -1,0 +1,46 @@
+{% extends 'navigation.html' %}
+{% block body %}
+{% load static %}
+<style>
+    .image {
+        background-size: cover;
+        background-position: center;
+        background-image: url("{% static 'images/main1.jpg' %}");
+    }
+
+    @media (max-width: 768px) {
+        .image {
+            height:auto;
+            width: 100%;
+            background-repeat: no-repeat;
+        }
+    }
+</style>
+<div class="image">
+    <div class="transparentbox">
+        <p><span style="color:indigo;">Study Hard for</span><span style="color:crimson;"> better future !</span></p>
+    </div>
+</div>
+<div class="work">
+    <h2 class="heading"><i class="fas fa-laptop-code"></i> Just Follow The 4 Steps</h2>
+
+    <div class="box-container">
+        <div class="boxtilt">
+            <p class="halfcircle"> <i class="fas fa-user text-white mt-3" style="font-size: 40px;"></i></p>
+            <p class="halfcircleBottom" style="font-size: 20px;">Create Account</i></p>
+        </div>
+        <div class="boxtilt">
+            <p class="halfcircle"> <i class="fas fa-sign-in-alt text-white mt-3" style="font-size: 40px;"></i></p>
+            <p class="halfcircleBottom" style="font-size: 20px;">Login</i></p>
+        </div>
+        <div class="boxtilt">
+            <p class="halfcircle"> <i class="fas fa-upload text-white mt-3" style="font-size: 40px;"></i></p>
+            <p class="halfcircleBottom" style="font-size: 20px;">Upload Notes</i></p>
+        </div>
+        <div class="boxtilt">
+            <p class="halfcircle"> <i class="fas fa-download text-white mt-3" style="font-size: 40px;"></i></p>
+            <p class="halfcircleBottom" style="font-size: 20px;">Download Notes</i></p>
+        </div>
+    </div>
+</div>
+{%endblock%}
